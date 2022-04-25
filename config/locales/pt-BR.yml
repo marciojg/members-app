@@ -1,0 +1,46 @@
+pt-BR:
+  time:
+    formats:
+      timestamp: '%Y-%m-%d %H:%M:%S %z'
+      time: '%H:%M:%S %z'
+  date:
+    formats:
+      short: '%Y-%m-%d'
+
+  activemodel:
+    errors:
+      models:
+        revenues_document_reader:
+          attributes:
+            header:
+              blank: 'não pode ficar em branco'
+              missing_fields:
+                one: "não é válido, a coluna a seguir é necessária: %{fields}"
+                other: "não é válido, as colunas a seguir são necessárias: %{fields}"
+            body:
+              blank: 'não pode ficar em branco'
+
+    attributes:
+      revenues_document_reader:
+        header: 'Cabeçalho'
+        body: 'Conteúdo'
+
+  activerecord:
+    errors:
+      models:
+        importer:
+          attributes:
+            base:
+              conflict: 'existe um conflito para o uso do recurso. Esse processo ja esta sendo processado'
+    attributes:
+      importer:
+        reference_date: 'Data de Referência'
+      revenue_kind:
+        origin: &origin 'Origem'
+        origin_id: *origin
+        name: 'Nome'
+        description: 'Descrição detalhada'
+        responsible_user: 'Responsável (Controles)'
+        responsible_area: 'Área Responsável'
+        payment_deadline: 'Prazo de Pagamento'
+        accounting_account_ids: 'Contas Contábeis'
