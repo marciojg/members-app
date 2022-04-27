@@ -40,6 +40,7 @@ gem 'will_paginate'
 gem 'jsonapi-rails'
 gem 'json_api_toolbox'
 gem 'log_toolbox'
+gem 'ransack'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

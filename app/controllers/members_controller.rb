@@ -2,7 +2,8 @@
 
 class MembersController < ApplicationController
   def index
-    result = Member.all.paginate(page: params[:page], per_page: per_page)
+    q = Member.ransack(params[:q])
+    result = q.result.includes(:group).paginate(page: params[:page], per_page: per_page)
 
     render_object(
       result, links: pagination(result), meta: pagination_meta(result)
