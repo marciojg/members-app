@@ -1,21 +1,21 @@
 module Types
-  class QueryType < Types::BaseObject
+  class QueryType < Types::Base::BaseObject
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
     # Get all groups
-    field :groups, [Types::GroupType, null: true], null: false
+    field :groups, [Types::Model::GroupType, null: true], null: false
     def groups
       Group.includes(:members).all
     end
 
-    field :groupsConnection, Types::GroupType.connection_type, null: false
+    field :groupsConnection, Types::Model::GroupType.connection_type, null: false
     def groupsConnection
       Group.includes(:members).all
     end
 
     # Get a specific group
-    field :group, Types::GroupType, null: false do
+    field :group, Types::Model::GroupType, null: false do
       argument :id, ID, required: true
     end
     def group(id:)
@@ -23,18 +23,18 @@ module Types
     end
 
      # Get all members
-     field :members, [Types::MemberType, null: true], null: false
-     def members()
+     field :members, [Types::Model::MemberType, null: true], null: false
+     def members
         Member.includes(:group).all
      end
 
-     field :membersConnection, Types::MemberType.connection_type, null: false
+     field :membersConnection, Types::Model::MemberType.connection_type, null: false
      def membersConnection
        Member.includes(:group).all
      end
 
      # Get a specific member
-     field :member, Types::MemberType, null: false do
+     field :member, Types::Model::MemberType, null: false do
        argument :id, ID, required: true
      end
      def member(id:)

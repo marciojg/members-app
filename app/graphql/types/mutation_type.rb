@@ -1,5 +1,5 @@
 module Types
-  class MutationType < Types::BaseObject
+  class MutationType < Types::Base::BaseObject
     # field :create_group, mutation: Mutations::GroupMutations::CreateGroupMutation
     # field :delete_group, mutation: Mutations::GroupMutations::DeleteGroupMutation
     # field :update_group, mutation: Mutations::GroupMutations::UpdateGroupMutation

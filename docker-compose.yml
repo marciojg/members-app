@@ -15,7 +15,7 @@ services:
       - /bin/sh
       - -c
       - |
-        rm -Rf tmp/pids/server.pid
+        rm -Rf tmp/pids/server.pid db/development.sqlite3
         export RAILS_ENV=development
         rails db:setup db:migrate
         rails db:seed
